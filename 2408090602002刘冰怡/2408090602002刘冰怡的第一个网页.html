@@ -1,0 +1,1207 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>2408090602002刘冰怡的第一个网页</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
+
+      background: #f7f9fc;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       导航栏
+    ========================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 0 8%;
+
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #e8edf3;
+
+      z-index: 999;
+    }
+
+    .logo {
+      color: #4A90D9;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #555;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4A90D9;
+    }
+
+    /* =========================
+       首页
+    ========================== */
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 110px 20px 70px;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(74, 144, 217, 0.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(91, 141, 239, 0.12),
+          transparent 35%
+        ),
+        #f7f9fc;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+
+      padding: 7px 16px;
+
+      background: #eaf3ff;
+      color: #4A90D9;
+
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      margin-bottom: 22px;
+    }
+
+    .main-title {
+      font-size: clamp(34px, 5vw, 60px);
+      color: #263142;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      color: #4A90D9;
+      font-size: clamp(24px, 3vw, 38px);
+      margin-bottom: 32px;
+      font-weight: 700;
+    }
+
+    .avatar-wrapper {
+      width: 150px;
+      height: 150px;
+
+      margin: 0 auto 28px;
+
+      padding: 5px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #4A90D9,
+        #8ab5ec
+      );
+
+      box-shadow: 0 16px 35px rgba(74, 144, 217, 0.18);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      border-radius: 50%;
+
+      background: white;
+      border: 4px solid white;
+    }
+
+    .nickname {
+      font-size: 46px;
+      font-weight: 700;
+      color: #263142;
+      margin-bottom: 8px;
+    }
+
+    .nickname span {
+      color: #4A90D9;
+    }
+
+    .subtitle {
+      color: #667085;
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-bottom: 35px;
+    }
+
+    .tag {
+      background: white;
+
+      padding: 8px 16px;
+
+      border-radius: 999px;
+      border: 1px solid #e6ebf1;
+
+      color: #5e6878;
+
+      font-size: 14px;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 12px 30px;
+
+      background: #4A90D9;
+      color: white;
+
+      border-radius: 999px;
+
+      font-size: 15px;
+
+      box-shadow: 0 8px 24px rgba(74, 144, 217, 0.25);
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #367fc6;
+    }
+
+    /* =========================
+       通用模块
+    ========================== */
+    section {
+      padding: 95px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+
+      font-size: 34px;
+      color: #263142;
+
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      text-align: center;
+
+      color: #8993a2;
+
+      margin-bottom: 45px;
+    }
+
+    .line {
+      width: 48px;
+      height: 4px;
+
+      background: #4A90D9;
+
+      border-radius: 999px;
+
+      margin: 12px auto 42px;
+    }
+
+    /* =========================
+       关于我
+    ========================== */
+    .about {
+      background: #fff;
+    }
+
+    .about-card {
+      background: #f8fafc;
+
+      border: 1px solid #edf1f5;
+
+      padding: 42px;
+
+      border-radius: 22px;
+
+      box-shadow: 0 15px 40px rgba(31, 55, 80, 0.06);
+    }
+
+    .about-card p {
+      margin-bottom: 18px;
+      color: #5f6978;
+      font-size: 16px;
+    }
+
+    .highlight {
+      color: #4A90D9;
+      font-weight: 600;
+    }
+
+    /* =========================
+       基本信息
+    ========================== */
+    .info {
+      background: #f7f9fc;
+    }
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .info-card {
+      background: #fff;
+
+      padding: 28px 20px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      border: 1px solid #ebeff5;
+
+      transition: 0.3s;
+
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-card h3 {
+      color: #4A90D9;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* =========================
+       兴趣与特点
+    ========================== */
+    .features {
+      background: white;
+    }
+
+    .feature-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .feature-card {
+      padding: 30px;
+
+      border-radius: 18px;
+
+      background: #f9fbfd;
+
+      border: 1px solid #eaf0f6;
+
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(26, 58, 89, 0.07);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+
+      border-radius: 15px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: #eaf3ff;
+
+      color: #4A90D9;
+
+      font-size: 24px;
+
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #2f3947;
+    }
+
+    .feature-card p {
+      color: #717b89;
+      font-size: 14px;
+    }
+
+    /* =========================
+       校园生活
+    ========================== */
+    .life {
+      background: #f7f9fc;
+    }
+
+    .life-content {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 28px;
+    }
+
+    .life-box {
+      background: white;
+
+      padding: 32px;
+
+      border-radius: 18px;
+
+      border: 1px solid #e8edf3;
+
+      box-shadow: 0 10px 30px rgba(20, 45, 70, 0.04);
+    }
+
+    .life-box h3 {
+      color: #4A90D9;
+      margin-bottom: 14px;
+    }
+
+    .life-box ul {
+      padding-left: 20px;
+      color: #667085;
+    }
+
+    .life-box li {
+      margin-bottom: 8px;
+    }
+
+    /* =========================
+       目标
+    ========================== */
+    .goal {
+      background: white;
+    }
+
+    .goal-box {
+      max-width: 800px;
+
+      margin: auto;
+
+      text-align: center;
+
+      padding: 45px;
+
+      background: linear-gradient(
+        135deg,
+        #f4f8ff,
+        #ffffff
+      );
+
+      border: 1px solid #e5edf8;
+
+      border-radius: 22px;
+    }
+
+    .goal-box h3 {
+      font-size: 27px;
+      color: #263142;
+      margin-bottom: 16px;
+    }
+
+    .goal-box p {
+      color: #667085;
+    }
+
+    /* =========================
+       页脚
+    ========================== */
+    footer {
+      text-align: center;
+
+      padding: 28px 20px;
+
+      color: #8b95a4;
+
+      font-size: 13px;
+
+      background: #f7f9fc;
+
+      border-top: 1px solid #e9edf2;
+    }
+
+    /* =========================
+       响应式
+    ========================== */
+    @media (max-width: 850px) {
+
+      .info-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .life-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        padding: 28px;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+
+      .navbar {
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .main-title {
+        font-size: 30px;
+      }
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .nickname {
+        font-size: 38px;
+      }
+
+      .avatar-wrapper {
+        width: 125px;
+        height: 125px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 16px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+
+    <a href="#home" class="logo">
+      bx.
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">首页</a>
+      <a href="#about">关于我</a>
+      <a href="#life">校园生活</a>
+    </div>
+
+  </nav>
+
+
+  <!-- 首页 -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        Welcome to my personal website
+      </div>
+
+      <h1 class="main-title">
+        欢迎来到我的个人主页
+      </h1>
+
+      <div class="page-title">
+        2408090602002刘冰怡的第一个网页
+      </div>
+
+      <div class="avatar-wrapper">
+
+        <img
+          class="avatar"
+          src="https://api.dicebear.com/9.x/notionists/svg?seed=bx"
+          alt="bx头像"
+        >
+
+      </div>
+
+      <div class="nickname">
+        我是 <span>bx</span>
+      </div>
+
+      <p class="subtitle">
+        嗨嗨，我是 bx，交个朋友哇~
+      </p>
+
+      <div class="tag-list">
+
+        <span class="tag">
+          湖南工业大学
+        </span>
+
+        <span class="tag">
+          包装工程学院
+        </span>
+
+        <span class="tag">
+          数字媒体技术
+        </span>
+
+        <span class="tag">
+          大三
+        </span>
+
+      </div>
+
+      <a href="#about" class="btn">
+        了解我更多
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- 关于我 -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        关于我
+      </h2>
+
+      <div class="line"></div>
+
+      <div class="about-card">
+
+        <p>
+          大家好，我是
+          <span class="highlight">刘冰怡</span>，
+          也可以叫我
+          <span class="highlight">bx</span>。
+          目前就读于
+          <span class="highlight">湖南工业大学包装工程学院</span>，
+          所学专业是
+          <span class="highlight">数字媒体技术</span>，
+          目前是一名大三学生。
+        </p>
+
+        <p>
+          我是一个性格积极向上、热情开朗的人，
+          平时喜欢接触新鲜事物，也愿意主动学习新的知识和技能。
+          在学习过程中，我比较注重实践，
+          希望能够把课堂上学到的知识真正应用到生活和项目中。
+        </p>
+
+        <p>
+          数字媒体技术是一个融合技术与创意的专业，
+          在学习过程中会接触网页设计、视觉设计、
+          数字媒体制作、计算机技术等多个方向。
+          我也希望通过大学期间的不断积累，
+          逐渐找到自己真正感兴趣和擅长的发展方向。
+        </p>
+
+        <p>
+          除了学习之外，我也喜欢参与校园活动和志愿活动。
+          我认为大学不仅仅是学习专业知识的地方，
+          也是提升沟通能力、团队合作能力和综合素质的重要阶段。
+          我希望珍惜每一次学习和实践的机会，
+          不断丰富自己的大学生活。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 基本信息 -->
+  <section class="info">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        我的基本信息
+      </h2>
+
+      <p class="section-desc">
+        一些关于我的简单介绍
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <h3>姓名 / 昵称</h3>
+
+          <p>
+            刘冰怡 / bx
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>学校</h3>
+
+          <p>
+            湖南工业大学
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>学院</h3>
+
+          <p>
+            包装工程学院
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>专业</h3>
+
+          <p>
+            数字媒体技术
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>目前年级</h3>
+
+          <p>
+            大三
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>性格特点</h3>
+
+          <p>
+            热情、开朗、积极
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>学习状态</h3>
+
+          <p>
+            持续学习中
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>个人关键词</h3>
+
+          <p>
+            青春 · 学习 · 成长
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 个人特点 -->
+  <section class="features">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        我的特点
+      </h2>
+
+      <p class="section-desc">
+        保持热爱，认真生活，不断进步
+      </p>
+
+      <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            ☀
+          </div>
+
+          <h3>
+            积极向上
+          </h3>
+
+          <p>
+            我喜欢用积极的态度面对学习与生活，
+            遇到问题时会尝试寻找解决办法，
+            不轻易放弃。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            📚
+          </div>
+
+          <h3>
+            热爱学习
+          </h3>
+
+          <p>
+            对新的知识和技能保持好奇心，
+            愿意不断学习，
+            也喜欢通过实践来加深理解。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            ❤
+          </div>
+
+          <h3>
+            热心公益
+          </h3>
+
+          <p>
+            积极参加校园活动和志愿服务，
+            在帮助他人的过程中，
+            也不断提升自己的责任感。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🎨
+          </div>
+
+          <h3>
+            喜欢创意
+          </h3>
+
+          <p>
+            数字媒体技术让我能够接触视觉、
+            网页和数字内容创作，
+            我也喜欢尝试不同的创意表达。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            💻
+          </div>
+
+          <h3>
+            探索技术
+          </h3>
+
+          <p>
+            对计算机和互联网技术具有兴趣，
+            希望通过不断练习，
+            提升自己的实际应用能力。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🌱
+          </div>
+
+          <h3>
+            持续成长
+          </h3>
+
+          <p>
+            大学生活还有很多值得探索的地方，
+            希望保持好奇，
+            一点一点成为更好的自己。
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 校园生活 -->
+  <section class="life" id="life">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        我的校园生活
+      </h2>
+
+      <p class="section-desc">
+        学习、实践、参与、成长
+      </p>
+
+      <div class="life-content">
+
+
+        <div class="life-box">
+
+          <h3>
+            📖 学习生活
+          </h3>
+
+          <ul>
+
+            <li>
+              认真完成数字媒体技术专业课程学习
+            </li>
+
+            <li>
+              学习网页设计和前端基础知识
+            </li>
+
+            <li>
+              关注视觉设计与数字媒体相关内容
+            </li>
+
+            <li>
+              尝试将课堂知识应用到实际作品中
+            </li>
+
+            <li>
+              不断学习新的软件和工具
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="life-box">
+
+          <h3>
+            🌟 校园活动
+          </h3>
+
+          <ul>
+
+            <li>
+              积极参加学校和学院组织的活动
+            </li>
+
+            <li>
+              主动参与志愿服务
+            </li>
+
+            <li>
+              与同学保持良好的沟通和交流
+            </li>
+
+            <li>
+              提升自己的团队合作能力
+            </li>
+
+            <li>
+              丰富自己的大学生活
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="life-box">
+
+          <h3>
+            💡 兴趣方向
+          </h3>
+
+          <ul>
+
+            <li>
+              网页设计与制作
+            </li>
+
+            <li>
+              UI 与视觉设计
+            </li>
+
+            <li>
+              数字媒体内容创作
+            </li>
+
+            <li>
+              互联网与计算机技术
+            </li>
+
+            <li>
+              摄影、视频和创意内容
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="life-box">
+
+          <h3>
+            🚀 我的期待
+          </h3>
+
+          <ul>
+
+            <li>
+              学好专业课程
+            </li>
+
+            <li>
+              提升自己的实践能力
+            </li>
+
+            <li>
+              多参加项目和比赛
+            </li>
+
+            <li>
+              学习更多实用技能
+            </li>
+
+            <li>
+              为未来就业做好准备
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 未来目标 -->
+  <section class="goal">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        未来目标
+      </h2>
+
+      <div class="line"></div>
+
+      <div class="goal-box">
+
+        <h3>
+          保持热爱，继续前进 ✨
+        </h3>
+
+        <p>
+          希望在接下来的大学生活中，
+          能够进一步提升自己的专业能力，
+          学习更多数字媒体、网页设计和计算机相关知识，
+          同时多参加实践项目，
+          让自己不仅掌握理论知识，
+          也拥有更强的实际动手能力。
+          希望未来回头看时，
+          会感谢现在一直努力学习、认真生活的自己。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 页脚 -->
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      刘冰怡 · bx
+    </p>
+
+    <p>
+      2408090602002刘冰怡的第一个网页
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    /* 自动显示当前年份 */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* 导航平滑滚动 */
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(link => {
+
+        link.addEventListener("click", function(event) {
+
+          const target =
+            document.querySelector(
+              this.getAttribute("href")
+            );
+
+          if (target) {
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+              behavior: "smooth"
+            });
+
+          }
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
+```
